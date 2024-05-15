@@ -1,4 +1,5 @@
 import 'dotenv/config';
+import mongoose from "mongoose";
 import _ from 'lodash';
 const env = (envKey, defaultVal = null) => process.env[envKey] || defaultVal;
 const getDataInFields = ({ fields = [], object = {} }) => _.pick(object, fields)
@@ -12,8 +13,10 @@ const formatDate = (date, addTime = null) => {
     // Concatenate components with desired format
     return `${day}-${month}-${year}-${hour}-${minute}`;
 }
+const countConnect = () => mongoose.connections.length;
 export {
     env,
     getDataInFields,
-    formatDate
+    formatDate,
+    countConnect
 }

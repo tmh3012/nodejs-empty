@@ -3,6 +3,7 @@ import 'dotenv/config'
 import express from "express";
 import router from "@/config/routes.config";
 import appConfig from "@/config/app.config";
+import instanceMongodb from './config/database.config';
 
 const {app: {port}} = appConfig;
 const app = express();
